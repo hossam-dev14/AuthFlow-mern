@@ -1,17 +1,28 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom"
 export default function SignUp() {
+  const [formData, setFormData] = useState();
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  // console.log(formData);
   return (
     <div className="bg-gray-100 flex justify-end px-14 bg-no-repeat bg-cover bg-center bg-fixed bg-bgImg mx-auto ">
       <div className="flex flex-col justify-end my-20 px-6 py-8 rounded-3xl lg:px-10 bg-gray-300 bg-opacity-90">
         <div className="flex justify-between sm:mx-auto sm:w-full sm:max-w-sm">
           <p className="text-2xl mr-12 text-gray-500">
-            Welcome to <span className="text-green-default font-bold ">AuthFlow</span>
+            Welcome to 
+            <span className="text-green-default font-bold ">
+              AuthFlow
+            </span>
           </p>
           <p className="flex flex-wrap mt-2 text-sm text-gray-500">
-          Have an Account?{' '}
+            Have an Account?{' '}
             <Link to='/sign-in'>
-              <span className="font-semibold leading-6 text-green-default hover:text-green-lighter">Sign up</span>
+              <span className="font-semibold leading-6 text-green-default hover:text-green-lighter">
+                Sign in
+              </span>
             </Link>  
           </p>
         </div>
@@ -37,6 +48,7 @@ export default function SignUp() {
                   required
                   placeholder="Email address"
                   className="block w-full rounded-md border-0 px-3 py-3.5 text-black bg-lightGray shadow-sm placeholder:text-gray-500 sm:text-sm sm:leading-6"
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -54,6 +66,7 @@ export default function SignUp() {
                   required
                   placeholder="user name"
                   className="block w-full rounded-md border-0 px-3 py-3.5 text-black bg-lightGray shadow-sm placeholder:text-gray-500 sm:text-sm sm:leading-6"
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -73,6 +86,7 @@ export default function SignUp() {
                   required
                   placeholder="Password"
                   className="block w-full rounded-md border-0 px-3 py-3.5 text-black bg-lightGray shadow-sm placeholder:text-gray-500 sm:text-sm sm:leading-6"
+                  onChange={handleInputChange}
                 />
               </div>
             </div>

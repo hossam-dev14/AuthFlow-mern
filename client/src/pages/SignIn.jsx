@@ -1,7 +1,14 @@
 
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function SignIn() {
+  const [formData, setFormData] = useState();
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  // console.log(formData);
+
   return (
     <div className="bg-gray-100 flex justify-end px-14 bg-no-repeat bg-cover bg-center bg-fixed bg-bgImg mx-auto ">
       <div className="flex flex-col justify-end my-20 px-6 py-8 rounded-3xl lg:px-10 bg-gray-300 bg-opacity-90">
@@ -39,6 +46,7 @@ export default function SignIn() {
                   required
                   placeholder="Email address"
                   className="block w-full rounded-md border-0 px-3 py-3.5 text-black bg-lightGray shadow-sm placeholder:text-gray-500 sm:text-sm sm:leading-6"
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -58,6 +66,7 @@ export default function SignIn() {
                   required
                   placeholder="Password"
                   className="block w-full rounded-md border-0 px-3 py-3.5 text-black bg-lightGray shadow-sm placeholder:text-gray-500 sm:text-sm sm:leading-6"
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="mt-4 text-sm">
