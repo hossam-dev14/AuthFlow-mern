@@ -1,10 +1,8 @@
 import mongoose from "mongoose";
-
 const userSchema = new mongoose.Schema({
     username:{
         type: String,
         required: true,
-        unique: true
     },
     email:{
         type: String,
@@ -15,4 +13,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-}, {timestamps: true)};
+    role: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: "Role"
+    }
+
+    // dateCreated: {  
+    //     type: Date,  
+    //     //Sets the current time as the creation date of an instance in the database.
+    //     default: Date.now()  
+    // }
+}, {timestamps: true});
+
+export default mongoose.model("User", userSchema);
